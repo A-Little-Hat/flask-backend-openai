@@ -1,7 +1,9 @@
 from flask import Flask, request
 from langchain.tools import DuckDuckGoSearchRun 
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 search = DuckDuckGoSearchRun()
 
 
@@ -12,7 +14,8 @@ def hello_world():
 @app.route('/qa')
 def qa():
     question = request.args.get('q')
-    return search.run(question)
+    res={"res":search.run(question)}
+    return res
  
 # main driver function
 if __name__ == '__main__':

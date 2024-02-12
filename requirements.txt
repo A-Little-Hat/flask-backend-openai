@@ -2,3 +2,4 @@ Flask
 Gunicorn
 langchain
 duckduckgo-search
+flask-cors
